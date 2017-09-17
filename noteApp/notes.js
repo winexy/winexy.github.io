@@ -24,7 +24,7 @@ let NoteEditor = React.createClass({
     handleNoteAdd: function() {
         let newNote = {
             text:  this.state.text,
-            color: 'yellow',
+            color: '#44c767',
             id: Date.now()
         };
 
