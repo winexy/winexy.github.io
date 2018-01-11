@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>home page</title>
+    <link rel="stylesheet" href="public/css/main.css?v=15">
+</head>
+<body>
+<header class="shadowed flex-center" >
+    <div class="logo shadowed"></div>
+    <form action="/" method="POST" class="search-form flex-center">
+        <div class="form-group search-group shadowed  flex-center">
+            <input type="text" name="search" required>
+            <input type="submit" class="btn" value="Поиск">
+        </div>
+        <div class="form-group target-block shadowed  flex-center">
+            <input type="radio" id="tags" name="searchTarget" checked>
+            <label for="tags" class="btn btn-left target">теги</label>
+            <input type="radio" id="peoples" name="searchTarget">
+            <label for="peoples" class="btn btn-right target">люди</label>
+        </div>
+    </form>
+    <form method="post">
+        <input class="btn shadowed" type="submit" name="logout" value="Выход">
+    </form>
+</header>
+<main class="flex-center">
+
+    <h2>По вашему запросу "uib" найдено 1134 тегов</h2>
+    <a href="#" class="btn savedb shadowed">Сохранить</a>
+    <div class="tags-block flex-center">
+        <div class="tag-block shadowed  flex-center">
+            <div class="tag-block-info  flex-center">
+                <span class="tag-name">#uibtest</span>
+                <span class="tag-posts">214 постов</span>
+            </div>
+            <a href="" class="btn tag-block-link">Список постов</a>
+        </div>
+    </div>
+
+
+</main>
+<footer>
+
+</footer>
+
+</body>
+</html>
