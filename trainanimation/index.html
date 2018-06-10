@@ -20,6 +20,8 @@
         animation-name: clouds;
         animation-duration: 1800ms;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in;
     }
 
     .train-slider__cloud:nth-child(2) {
@@ -46,14 +48,16 @@
         50% {
             top: -50px;
             right: 40px;
-            opacity: 0;
+            opacity: .7;
         }
         90% {
+            opacity: 0;
         }
         100% {
             width: 140px;
             top: -120px;
             right: 120px;
+            display: none;
         }
     }
 
