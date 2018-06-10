@@ -18,7 +18,7 @@
 
     .train-slider__cloud--animate {
         animation-name: clouds;
-        animation-duration: 1800ms;
+        animation-duration: 2000ms;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
         animation-timing-function: ease-in;
@@ -48,16 +48,15 @@
         50% {
             top: -50px;
             right: 40px;
-            opacity: .7;
         }
-        90% {
+        60% {
             opacity: 0;
         }
         100% {
             width: 140px;
             top: -120px;
             right: 120px;
-            display: none;
+            z-index: -9999;
         }
     }
 
