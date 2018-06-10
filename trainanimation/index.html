@@ -21,7 +21,8 @@
         animation-duration: 2000ms;
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
-        animation-timing-function: ease-in;
+        animation-timing-function: ease-out;
+        animation-direction: reverse;
     }
 
     .train-slider__cloud:nth-child(2) {
@@ -43,21 +44,19 @@
     }
     @keyframes clouds {
         0% {
-            right: 10px;
-            opacity: 1;
-        }
-        50% {
-            top: -50px;
-            right: 40px;
-        }
-        60% {
             opacity: 0;
-        }
-        100% {
-            width: 140px;
             top: -120px;
             right: 120px;
-            z-index: -9999;
+            width: 140px;
+        }
+        50% {
+            top: -55px;
+        }
+        100% {
+            width: 0;
+            top: -20px;
+            right: 15px;
+            opacity: 1;
         }
     }
 
