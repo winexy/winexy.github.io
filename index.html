@@ -25,7 +25,9 @@
       }, c);
       h.timeout = c;
 
+      console.log(document.body.innerHTML);
       setTimeout(() => {
+        console.log(document.body.innerHTML);
         const parseCookies = () => {
           return document.cookie.split('; ').reduce((cookies, entry) => {
             [key, value] = entry.split('=');
@@ -44,6 +46,10 @@
             });
         else 
           document.body.removeChild(button);
+
+        setTimeout(() => {
+          console.log(document.body.innerHTML);
+        }, 100);
       }, 0);
     })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
       'GTM-NJQ6B8L': true
