@@ -24,28 +24,27 @@
         h.end = null
       }, c);
       h.timeout = c;
-      
-      function parseCookies() {
-      return document.cookie.split('; ').reduce((cookies, entry) => {
-        [key, value] = entry.split('=');
-        cookies[key] = value;
-        return cookies;
-      }, {});
-    }
 
-    const cookies = parseCookies();
+      setTimeout(() => {
+        const parseCookies = () => {
+          return document.cookie.split('; ').reduce((cookies, entry) => {
+            [key, value] = entry.split('=');
+            cookies[key] = value;
+            return cookies;
+          }, {});
+        }
 
-    const experiment = cookies['_gaexp'];
+        const experiment = parseCookies()['_gaexp'];
 
-    if (experiment.endsWith('1')) {
-      document
-        .querySelector('button')
-        .addEventListener('click', function () {
-          ga('send', 'event', 'pshh', 'click');
-        });
-    } else {
-      document.body.removeChild(button);
-    }
+        if (experiment.endsWith('1'))
+          document
+            .querySelector('button')
+            .addEventListener('click', () => {
+              ga('send', 'event', 'pshh', 'click');
+            });
+        else 
+          document.body.removeChild(button);
+      }, 0);
     })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
       'GTM-NJQ6B8L': true
     });
