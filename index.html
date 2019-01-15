@@ -72,17 +72,18 @@
     gtag('config', 'UA-132401083-1');
   </script>
   <script>
+    console.log('bottom');
     let _ENDGAME_ = 0;
-      Object.defineProperty(window, '__ENDGAME__', {
+    Object.defineProperty(window, '__ENDGAME__', {
 
-        get() {
-          return _ENDGAME_;
-          },
-        set(value) {
-          dependency();
-          _ENDGAME_ = value;
-          }
-      });
+      get() {
+        return _ENDGAME_;
+        },
+      set(value) {
+        dependency();
+        _ENDGAME_ = value;
+        }
+    });
     // console.log(window.__ENDGAME__);
     // console.log(document.cookie);
     // const interval = setInterval(() => {
@@ -120,7 +121,7 @@
             .querySelector('button')
             .style
             .border = '2px solid orangered';
-          } else (window.__ENDGAME__ === 0) {
+          } else {
             document.body.removeChild(button);
           }
     }
