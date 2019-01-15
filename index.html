@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +20,7 @@
       (a[n] = a[n] || []).hide = h;
       setTimeout(function () {
         i();
+        custom();
         h.end = null
       }, c);
       h.timeout = c;
@@ -74,10 +74,12 @@
     gtag('config', 'UA-132401083-1');
   </script>
   <script>
-    console.log(window.ready);
-    setTimeout(() => {
-          const parseCookies = () => {
-            return document.cookie.split('; ').reduce((cookies, entry) => {
+    function custom() {
+      console.log(window.ready);
+      const parseCookies = () => {
+            return document
+            .cookie.split('; ')
+            .reduce((cookies, entry) => {
               [key, value] = entry.split('=');
               cookies[key] = value;
               return cookies;
@@ -94,7 +96,7 @@
             });
           else
             document.body.removeChild(button);
-     }, 0);
+    }
   </script>
 </body>
 
