@@ -25,7 +25,7 @@
       }, c);
       h.timeout = c;
 
-      window.ready = 1;
+      window.ready = true;
       console.log(document.cookie);
     })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
       'GTM-NJQ6B8L': true
@@ -74,9 +74,8 @@
     gtag('config', 'UA-132401083-1');
   </script>
   <script>
-    console.log(document.body.innerHTML);
+    console.log(window.ready);
     setTimeout(() => {
-          console.log(document.body.innerHTML);
           const parseCookies = () => {
             return document.cookie.split('; ').reduce((cookies, entry) => {
               [key, value] = entry.split('=');
@@ -95,10 +94,6 @@
             });
           else
             document.body.removeChild(button);
-
-          setTimeout(() => {
-            console.log(document.body.innerHTML);
-          }, 100);
      }, 0);
   </script>
 </body>
