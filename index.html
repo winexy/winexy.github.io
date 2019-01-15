@@ -110,18 +110,24 @@
 
       //     const experiment = parseCookies()['_gaexp'];
 
-          if (window.__ENDGAME__ === 1)
+        console.log(window.__ENDGAME__);
+
+          if (window.__ENDGAME__ === 1) {
+            console.log(':1');
             document
             .querySelector('button')
             .addEventListener('click', () => {
               ga('send', 'event', 'pshh', 'click');
             });
+          }
           else if (window.__ENDGAME__ === 2) {
+            console.log(':2');
             document
             .querySelector('button')
             .style
             .border = '2px solid orangered';
           } else {
+            console.log(':3');
             document.body.removeChild(button);
           }
     }
