@@ -98,21 +98,21 @@
     
     function dependency() {
       console.log(document.cookie);
-      // const parseCookies = () => {
-      //       return document
-      //       .cookie.split('; ')
-      //       .reduce((cookies, entry) => {
-      //         [key, value] = entry.split('=');
-      //         cookies[key] = value;
-      //         return cookies;
-      //       }, {});
-      //     }
+      const parseCookies = () => {
+            return document
+            .cookie.split('; ')
+            .reduce((cookies, entry) => {
+              [key, value] = entry.split('=');
+              cookies[key] = value;
+              return cookies;
+            }, {});
+          }
 
-      //     const experiment = parseCookies()['_gaexp'];
-
+          const experiment = parseCookies()['_gaexp'];
+        let end = +experiment.charAt(experiment.length - 1);
         console.log(window.__ENDGAME__);
 
-          if (window.__ENDGAME__ === 1) {
+          if (end === 1) {
             console.log(':1');
             document
             .querySelector('button')
@@ -120,7 +120,7 @@
               ga('send', 'event', 'pshh', 'click');
             });
           }
-          else if (window.__ENDGAME__ === 2) {
+          else if (end === 2) {
             console.log(':2');
             document
             .querySelector('button')
