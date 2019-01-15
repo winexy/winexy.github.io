@@ -11,6 +11,17 @@
     }
   </style>
   <script>
+    let _ENDGAME_ = 0;
+    Object.defineProperty(window, '__ENDGAME__', {
+      get() {
+        return _ENDGAME_;
+        },
+      set(value) {
+        dependency();
+        _ENDGAME_ = value;
+        }
+    });
+
     (function (a, s, y, n, c, h, i, d, e) {
       s.className += ' ' + y;
       h.start = 1 * new Date;
@@ -73,17 +84,6 @@
   </script>
   <script>
     console.log('bottom');
-    let _ENDGAME_ = 0;
-    Object.defineProperty(window, '__ENDGAME__', {
-
-      get() {
-        return _ENDGAME_;
-        },
-      set(value) {
-        dependency();
-        _ENDGAME_ = value;
-        }
-    });
     // console.log(window.__ENDGAME__);
     // console.log(document.cookie);
     // const interval = setInterval(() => {
