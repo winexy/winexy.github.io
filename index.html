@@ -20,7 +20,6 @@
       (a[n] = a[n] || []).hide = h;
       setTimeout(function () {
         i();
-        custom();
         h.end = null
       }, c);
       h.timeout = c;
@@ -74,29 +73,45 @@
     gtag('config', 'UA-132401083-1');
   </script>
   <script>
-    function custom() {
-      console.log(window.ready);
-      const parseCookies = () => {
-            return document
-            .cookie.split('; ')
-            .reduce((cookies, entry) => {
-              [key, value] = entry.split('=');
-              cookies[key] = value;
-              return cookies;
-            }, {});
-          }
+    let c = 0;
+    console.log(window.__ENDGAME__);
+    console.log(document.cookies);
+    const interval = setInterval(() => {
+      console.log(window.__ENDGAME__);
+      console.log(document.cookies);
+      console.log('_________________');
+      c++;
 
-          const experiment = parseCookies()['_gaexp'];
+      if (c > 20) {
+        clearInterval(interval);
+      }
+    }, 1000);
+    // function custom() {
+    //   console.log(window.ready);
+    //   const parseCookies = () => {
+    //         return document
+    //         .cookie.split('; ')
+    //         .reduce((cookies, entry) => {
+    //           [key, value] = entry.split('=');
+    //           cookies[key] = value;
+    //           return cookies;
+    //         }, {});
+    //       }
 
-          if (experiment.endsWith('1'))
-            document
-            .querySelector('button')
-            .addEventListener('click', () => {
-              ga('send', 'event', 'pshh', 'click');
-            });
-          else
-            document.body.removeChild(button);
-    }
+    //       const experiment = parseCookies()['_gaexp'];
+
+    //       if (experiment.endsWith('1'))
+    //         document
+    //         .querySelector('button')
+    //         .addEventListener('click', () => {
+    //           ga('send', 'event', 'pshh', 'click');
+    //         });
+    //       else
+    //         document.body.removeChild(button);
+
+
+
+    // }
   </script>
 </body>
 
