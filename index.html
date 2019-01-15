@@ -25,32 +25,8 @@
       }, c);
       h.timeout = c;
 
-      console.log(document.body.innerHTML);
-      setTimeout(() => {
-        console.log(document.body.innerHTML);
-        const parseCookies = () => {
-          return document.cookie.split('; ').reduce((cookies, entry) => {
-            [key, value] = entry.split('=');
-            cookies[key] = value;
-            return cookies;
-          }, {});
-        }
-
-        const experiment = parseCookies()['_gaexp'];
-
-        if (experiment.endsWith('1'))
-          document
-            .querySelector('button')
-            .addEventListener('click', () => {
-              ga('send', 'event', 'pshh', 'click');
-            });
-        else 
-          document.body.removeChild(button);
-
-        setTimeout(() => {
-          console.log(document.body.innerHTML);
-        }, 100);
-      }, 0);
+      window.ready = 1;
+      console.log(document.cookie);
     })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
       'GTM-NJQ6B8L': true
     });
@@ -96,6 +72,34 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-132401083-1');
+  </script>
+  <script>
+    console.log(document.body.innerHTML);
+    setTimeout(() => {
+          console.log(document.body.innerHTML);
+          const parseCookies = () => {
+            return document.cookie.split('; ').reduce((cookies, entry) => {
+              [key, value] = entry.split('=');
+              cookies[key] = value;
+              return cookies;
+            }, {});
+          }
+
+          const experiment = parseCookies()['_gaexp'];
+
+          if (experiment.endsWith('1'))
+            document
+            .querySelector('button')
+            .addEventListener('click', () => {
+              ga('send', 'event', 'pshh', 'click');
+            });
+          else
+            document.body.removeChild(button);
+
+          setTimeout(() => {
+            console.log(document.body.innerHTML);
+          }, 100);
+     }, 0);
   </script>
 </body>
 
