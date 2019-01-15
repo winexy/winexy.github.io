@@ -19,6 +19,7 @@
       };
       (a[n] = a[n] || []).hide = h;
       setTimeout(function () {
+        console.log('i');
         i();
         h.end = null
       }, c);
@@ -42,6 +43,7 @@
       a.src = g;
       m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    console.log('ga');
     ga('create', 'UA-132401083-1', 'auto');
     ga('require', 'GTM-NJQ6B8L');
     ga('send', 'pageview');
@@ -64,7 +66,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132401083-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
+    console.log('datalayer');
     function gtag() {
       dataLayer.push(arguments);
     }
@@ -73,19 +75,16 @@
     gtag('config', 'UA-132401083-1');
   </script>
   <script>
-    let c = 0;
     console.log(window.__ENDGAME__);
     console.log(document.cookie);
     const interval = setInterval(() => {
       console.log(window.__ENDGAME__);
       console.log(document.cookie);
       console.log('_________________');
-      c++;
-
-      if (c > 20) {
+      if (window.__ENDGAME__) {
         clearInterval(interval);
       }
-    }, 1000);
+    }, 500);
     // function custom() {
     //   console.log(window.ready);
     //   const parseCookies = () => {
