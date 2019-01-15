@@ -24,9 +24,6 @@
         h.end = null
       }, c);
       h.timeout = c;
-
-      window.ready = true;
-      console.log(document.cookie);
     })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
       'GTM-NJQ6B8L': true
     });
@@ -75,42 +72,52 @@
     gtag('config', 'UA-132401083-1');
   </script>
   <script>
-    console.log(window.__ENDGAME__);
-    console.log(document.cookie);
-    const interval = setInterval(() => {
-      console.log(window.__ENDGAME__);
-      console.log(document.cookie);
-      console.log('_________________');
-      if (window.__ENDGAME__) {
-        clearInterval(interval);
-      }
-    }, 500);
-    // function custom() {
-    //   console.log(window.ready);
-    //   const parseCookies = () => {
-    //         return document
-    //         .cookie.split('; ')
-    //         .reduce((cookies, entry) => {
-    //           [key, value] = entry.split('=');
-    //           cookies[key] = value;
-    //           return cookies;
-    //         }, {});
-    //       }
+    let _ENDGAME_ = 0;
+      Object.defineProperty(window, '__ENDGAME__', {
 
-    //       const experiment = parseCookies()['_gaexp'];
+        get() {
+          return _ENDGAME_;
+          },
+        set(value) {
+          dependency();
+          _ENDGAME_ = value;
+          }
+      });
+    // console.log(window.__ENDGAME__);
+    // console.log(document.cookie);
+    // const interval = setInterval(() => {
+    //   console.log(window.__ENDGAME__);
+    //   console.log(document.cookie);
+    //   console.log('_________________');
+    //   if (window.__ENDGAME__) {
+    //     clearInterval(interval);
+    //   }
+    // }, 500);
 
-    //       if (experiment.endsWith('1'))
-    //         document
-    //         .querySelector('button')
-    //         .addEventListener('click', () => {
-    //           ga('send', 'event', 'pshh', 'click');
-    //         });
-    //       else
-    //         document.body.removeChild(button);
+    
+    function dependecy() {
+      console.log(window.ready);
+      const parseCookies = () => {
+            return document
+            .cookie.split('; ')
+            .reduce((cookies, entry) => {
+              [key, value] = entry.split('=');
+              cookies[key] = value;
+              return cookies;
+            }, {});
+          }
 
+          const experiment = parseCookies()['_gaexp'];
 
-
-    // }
+          if (experiment.endsWith('1'))
+            document
+            .querySelector('button')
+            .addEventListener('click', () => {
+              ga('send', 'event', 'pshh', 'click');
+            });
+          else
+            document.body.removeChild(button);
+    }
   </script>
 </body>
 
