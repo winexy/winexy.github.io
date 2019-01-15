@@ -32,6 +32,9 @@
   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, nemo modi in neque enim illum voluptates
     dicta doloribus autem libero veritatis reiciendis suscipit ut possimus iste sequi aspernatur quisquam obcaecati.</p>
 
+
+  <button id="button">Click me</button>
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132401083-1"></script>
   <script>
@@ -44,7 +47,29 @@
 
     gtag('config', 'UA-132401083-1');
   </script>
+  <script>
+    console.log(document.cookie);
+    function parseCookies() {
+      return document.cookie.split('; ').reduce((cookies, entry) => {
+          [key, value] = entry.split('=');
+          cookies[key] = value;
+          return cookies;
+      }, {});
+    }
 
+    const cookies = parseCookies();
+
+    const experiment = cookies['_gaexp'];
+
+    if (experiment.endsWith(1)) {
+      button.addEventListener('click', function() {
+        ga('send', 'event', 'pshh', 'click');
+      }); 
+    } else {
+      document.body.removeChild(button);
+    }
+
+  </script>
 </body>
 
 </html>
