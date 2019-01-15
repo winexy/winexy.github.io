@@ -38,9 +38,11 @@
     const experiment = cookies['_gaexp'];
 
     if (experiment.endsWith('1')) {
-      button.addEventListener('click', function () {
-        ga('send', 'event', 'pshh', 'click');
-      });
+      document
+        .querySelector('button')
+        .addEventListener('click', function () {
+          ga('send', 'event', 'pshh', 'click');
+        });
     } else {
       document.body.removeChild(button);
     }
