@@ -96,27 +96,33 @@
 
     
     function dependecy() {
-      console.log(window.ready);
-      const parseCookies = () => {
-            return document
-            .cookie.split('; ')
-            .reduce((cookies, entry) => {
-              [key, value] = entry.split('=');
-              cookies[key] = value;
-              return cookies;
-            }, {});
-          }
+      console.log(document.cookie);
+      // const parseCookies = () => {
+      //       return document
+      //       .cookie.split('; ')
+      //       .reduce((cookies, entry) => {
+      //         [key, value] = entry.split('=');
+      //         cookies[key] = value;
+      //         return cookies;
+      //       }, {});
+      //     }
 
-          const experiment = parseCookies()['_gaexp'];
+      //     const experiment = parseCookies()['_gaexp'];
 
-          if (experiment.endsWith('1'))
+          if (window.__ENDGAME__ === 1)
             document
             .querySelector('button')
             .addEventListener('click', () => {
               ga('send', 'event', 'pshh', 'click');
             });
-          else
+          else if (window.__ENDGAME__ === 2) {
+            document
+            .querySelector('button')
+            .style
+            .border = '2px solid orangered';
+          } else (window.__ENDGAME__ === 0) {
             document.body.removeChild(button);
+          }
     }
   </script>
 </body>
