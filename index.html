@@ -4,41 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>test</title>
-  <style>
-    .async-hide {
-      opacity: 0 !important
-    }
-  </style>
-  <script>
-    let _ENDGAME_ = 0;
-    Object.defineProperty(window, '__ENDGAME__', {
-      get() {
-        return _ENDGAME_;
-        },
-      set(value) {
-        dependency();
-        _ENDGAME_ = value;
-        }
-    });
-
-    (function (a, s, y, n, c, h, i, d, e) {
-      s.className += ' ' + y;
-      h.start = 1 * new Date;
-      h.end = i = function () {
-        s.className = s.className.replace(RegExp(' ?' + y), '')
-      };
-      (a[n] = a[n] || []).hide = h;
-      setTimeout(function () {
-        console.log('i');
-        i();
-        h.end = null
-      }, c);
-      h.timeout = c;
-    })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {
-      'GTM-NJQ6B8L': true
-    });
-  </script>
+  <title>winexy</title>
   <script>
     (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -59,79 +25,7 @@
 </head>
 
 <body>
-  <h1>hello, there</h1>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, nemo modi in neque enim illum voluptates
-    dicta doloribus autem libero veritatis reiciendis suscipit ut possimus iste sequi aspernatur quisquam obcaecati.</p>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, nemo modi in neque enim illum voluptates
-    dicta doloribus autem libero veritatis reiciendis suscipit ut possimus iste sequi aspernatur quisquam obcaecati.</p>
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore, nemo modi in neque enim illum voluptates
-    dicta doloribus autem libero veritatis reiciendis suscipit ut possimus iste sequi aspernatur quisquam obcaecati.</p>
-
-
-  <button id="button">Click me</button>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132401083-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    console.log('datalayer');
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-132401083-1');
-  </script>
-  <script>
-    console.log('bottom');
-    // console.log(window.__ENDGAME__);
-    // console.log(document.cookie);
-    // const interval = setInterval(() => {
-    //   console.log(window.__ENDGAME__);
-    //   console.log(document.cookie);
-    //   console.log('_________________');
-    //   if (window.__ENDGAME__) {
-    //     clearInterval(interval);
-    //   }
-    // }, 500);
-
-    
-    function dependency() {
-      console.log(document.cookie);
-      const parseCookies = () => {
-            return document
-            .cookie.split('; ')
-            .reduce((cookies, entry) => {
-              [key, value] = entry.split('=');
-              cookies[key] = value;
-              return cookies;
-            }, {});
-          }
-
-          const experiment = parseCookies()['_gaexp'];
-        let end = +experiment.charAt(experiment.length - 1);
-        console.log(window.__ENDGAME__);
-
-          if (end === 1) {
-            console.log(':1');
-            document
-            .querySelector('button')
-            .addEventListener('click', () => {
-              ga('send', 'event', 'pshh', 'click');
-            });
-          }
-          else if (end === 2) {
-            console.log(':2');
-            document
-            .querySelector('button')
-            .style
-            .border = '2px solid orangered';
-          } else {
-            console.log(':3');
-            document.body.removeChild(button);
-          }
-    }
-  </script>
+  <a href="/fp">fp</a>
 </body>
 
 </html>
